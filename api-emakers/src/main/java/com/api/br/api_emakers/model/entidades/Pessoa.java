@@ -1,10 +1,12 @@
 package com.api.br.api_emakers.model.entidades;
 
+import com.api.br.api_emakers.model.dto.request.PessoaRequestDTO;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.*;
 
 @Setter
 @Getter
@@ -23,7 +25,14 @@ public class Pessoa {
     private String cep;
 
     //TODO revisar relação ManyToMany
-    @ManyToMany
-    @JoinTable(name = "emprestimo")
+    @ManyToMany(mappedBy = "emprestimos")
+    @JoinTable(name = "emprestimos")
     private List<Livro> emprestimos;
+
+    @Builder
+    public Pessoa(PessoaRequestDTO pessoaRequestDTO){
+        this.nome = pessoaRequestDTO.nome();
+        this.cep = pessoaRequestDTO.cep();
+        this.emprestimos = new ArrayList<>();
+    }
 }

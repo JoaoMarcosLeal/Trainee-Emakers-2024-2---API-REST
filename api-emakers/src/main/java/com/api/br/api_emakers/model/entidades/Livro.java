@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -28,10 +30,14 @@ public class Livro {
 
     private Date data_lancamento;
 
+    @ManyToMany(mappedBy = "emprestimos")
+    private List<Pessoa> emprestimos;
+
     @Builder
     public Livro(LivroRequestDTO livroRequestDTO){
         this.nome = livroRequestDTO.nome();
         this.autor = livroRequestDTO.autor();
         this.data_lancamento = livroRequestDTO.data_lancamento();
+        this.emprestimos = new ArrayList<>();
     }
 }
