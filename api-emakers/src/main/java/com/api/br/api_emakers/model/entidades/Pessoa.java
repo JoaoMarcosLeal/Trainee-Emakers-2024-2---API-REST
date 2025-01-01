@@ -14,7 +14,7 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPessoa;
+    private Integer idPessoa;
 
     @Column(name = "nome", nullable = false, length = 45)
     private String nome;
@@ -22,6 +22,7 @@ public class Pessoa {
     @Column(name = "cep", nullable = false, length = 9)
     private String cep;
 
+    //TODO revisar relação ManyToMany
     @ManyToMany
     @JoinTable(name = "emprestimo")
     private List<Livro> emprestimos;
