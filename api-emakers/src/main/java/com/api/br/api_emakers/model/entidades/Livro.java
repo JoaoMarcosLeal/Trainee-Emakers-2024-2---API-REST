@@ -30,7 +30,7 @@ public class Livro {
 
     private Date data_lancamento;
 
-    @ManyToMany(mappedBy = "emprestimos")
+    @ManyToMany(mappedBy = "livros")
     private List<Pessoa> emprestimos;
 
     @Builder

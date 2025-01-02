@@ -4,10 +4,12 @@ import com.api.br.api_emakers.model.dto.request.PessoaRequestDTO;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.*;
 
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -25,14 +27,18 @@ public class Pessoa {
     private String cep;
 
     //TODO revisar relação ManyToMany
-    @ManyToMany(mappedBy = "emprestimos")
-    @JoinTable(name = "emprestimos")
-    private List<Livro> emprestimos;
+    @ManyToMany
+    @JoinTable(
+            name = "emprestimos",
+            joinColumns = @JoinColumn(name = "pessoa_id"),
+            inverseJoinColumns = @JoinColumn(name = "livro_id")
+    )
+    private List<Livro> livros;
 
     @Builder
     public Pessoa(PessoaRequestDTO pessoaRequestDTO){
         this.nome = pessoaRequestDTO.nome();
         this.cep = pessoaRequestDTO.cep();
-        this.emprestimos = new ArrayList<>();
+        this.livros = new ArrayList<>();
     }
 }
