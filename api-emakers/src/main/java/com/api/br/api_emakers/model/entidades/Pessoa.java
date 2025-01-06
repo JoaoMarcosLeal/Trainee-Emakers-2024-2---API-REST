@@ -2,16 +2,11 @@ package com.api.br.api_emakers.model.entidades;
 
 import com.api.br.api_emakers.model.dto.request.PessoaRequestDTO;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.*;
 
 @NoArgsConstructor
-@Setter
-@Getter
 @Entity
 @Table(name = "pessoas")
 public class Pessoa {
@@ -39,5 +34,37 @@ public class Pessoa {
         this.nome = pessoaRequestDTO.nome();
         this.cep = pessoaRequestDTO.cep();
         this.livros = new ArrayList<>();
+    }
+
+    public Integer getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(Integer idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public List<Livro> getLivros(){
+        return livros;
+    }
+
+    public void setLivros(List<Livro> livros){
+        this.livros = livros;
     }
 }

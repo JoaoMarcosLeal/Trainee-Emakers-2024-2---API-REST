@@ -3,17 +3,13 @@ package com.api.br.api_emakers.model.entidades;
 import com.api.br.api_emakers.model.dto.request.LivroRequestDTO;
 import jakarta.persistence.*;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
-@Setter
-@Getter
 @Entity
 @Table(name = "livros")
 public class Livro {
@@ -37,7 +33,46 @@ public class Livro {
     public Livro(LivroRequestDTO livroRequestDTO){
         this.nome = livroRequestDTO.nome();
         this.autor = livroRequestDTO.autor();
-        this.data_lancamento = livroRequestDTO.data_lancamento();
-        this.emprestimos = new ArrayList<>();
+        this.data_lancamento = Date.valueOf(livroRequestDTO.data_lancamento());
+    }
+
+    public Integer getIdLivro() {
+        return idLivro;
+    }
+
+    public void setIdLivro(Integer idLivro) {
+        this.idLivro = idLivro;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getData_lancamento() {
+        return data_lancamento.toString();
+    }
+
+    public void setData_lancamento(String data_lancamento){
+        this.data_lancamento = Date.valueOf(data_lancamento);
+    }
+
+    public List<Pessoa> getEmprestimos(){
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Pessoa> emprestimos){
+        this.emprestimos = emprestimos;
     }
 }

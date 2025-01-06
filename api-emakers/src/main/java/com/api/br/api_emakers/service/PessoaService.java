@@ -39,6 +39,7 @@ public class PessoaService {
         Pessoa pessoa = getEntityById(idPessoa);
         pessoa.setNome(pessoaRequestDTO.nome());
         pessoa.setCep(pessoaRequestDTO.cep());
+        pessoa.setLivros(pessoaRequestDTO.livros());
 
         return new PessoaResponseDTO(pessoa);
     }
