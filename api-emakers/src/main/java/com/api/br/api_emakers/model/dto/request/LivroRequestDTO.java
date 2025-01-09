@@ -16,9 +16,8 @@ public record LivroRequestDTO(
         String autor,
 
         // Se sobrar tempo: ser mais restrito quanto as datas.
-        @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "A data de lançamento do livro deve seguir este formato: YY-MM-DD")
-        String data_lancamento,
+        @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}", message = "A data de lançamento do livro deve seguir este formato: YY-MM-DD")
+        String data_lancamento
 
-        List<Pessoa> emprestimos
 ) {
 }

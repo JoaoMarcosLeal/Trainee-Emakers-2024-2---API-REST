@@ -11,8 +11,6 @@ public record PessoaRequestDTO(
         String nome,
 
         @NotBlank(message = "Informar cep para o usuário.")
-        String cep,
-
-        List<Livro> livros
+        String cep
 ){
 }

@@ -6,10 +6,8 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "livros")
 public class Livro {
@@ -27,13 +25,17 @@ public class Livro {
     private Date data_lancamento;
 
     @ManyToMany(mappedBy = "livros")
-    private List<Pessoa> emprestimos;
+    private Set<Pessoa> emprestimos;
 
     @Builder
     public Livro(LivroRequestDTO livroRequestDTO){
         this.nome = livroRequestDTO.nome();
         this.autor = livroRequestDTO.autor();
         this.data_lancamento = Date.valueOf(livroRequestDTO.data_lancamento());
+    }
+
+    public Livro(){
+
     }
 
     public Integer getIdLivro() {
@@ -68,11 +70,11 @@ public class Livro {
         this.data_lancamento = Date.valueOf(data_lancamento);
     }
 
-    public List<Pessoa> getEmprestimos(){
+    public Set<Pessoa> getEmprestimos(){
         return emprestimos;
     }
 
-    public void setEmprestimos(List<Pessoa> emprestimos){
+    public void setEmprestimos(Set<Pessoa> emprestimos){
         this.emprestimos = emprestimos;
     }
 }

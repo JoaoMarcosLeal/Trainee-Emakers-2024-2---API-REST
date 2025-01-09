@@ -4,6 +4,7 @@ import com.api.br.api_emakers.model.entidades.Livro;
 import com.api.br.api_emakers.model.entidades.Pessoa;
 
 import java.util.List;
+import java.util.Set;
 
 
 public record LivroResponseDTO(
@@ -15,7 +16,7 @@ public record LivroResponseDTO(
 
         String data,
 
-        List<Pessoa> emprestimos
+        Set<Pessoa> emprestimos
 ) {
     public LivroResponseDTO(Livro livro){
         this(livro.getIdLivro(), livro.getNome(), livro.getAutor(), livro.getData_lancamento(), livro.getEmprestimos());

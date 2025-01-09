@@ -27,13 +27,12 @@ public class Pessoa {
             joinColumns = @JoinColumn(name = "pessoa_id"),
             inverseJoinColumns = @JoinColumn(name = "livro_id")
     )
-    private List<Livro> livros;
+    private Set<Livro> livros;
 
     @Builder
     public Pessoa(PessoaRequestDTO pessoaRequestDTO){
         this.nome = pessoaRequestDTO.nome();
         this.cep = pessoaRequestDTO.cep();
-        this.livros = new ArrayList<>();
     }
 
     public Integer getIdPessoa() {
@@ -60,11 +59,11 @@ public class Pessoa {
         this.cep = cep;
     }
 
-    public List<Livro> getLivros(){
+    public Set<Livro> getLivros(){
         return livros;
     }
 
-    public void setLivros(List<Livro> livros){
+    public void setLivros(Set<Livro> livros){
         this.livros = livros;
     }
 }

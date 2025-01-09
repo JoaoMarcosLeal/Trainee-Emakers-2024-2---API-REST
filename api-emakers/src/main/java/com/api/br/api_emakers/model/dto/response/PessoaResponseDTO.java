@@ -4,6 +4,7 @@ import com.api.br.api_emakers.model.entidades.Livro;
 import com.api.br.api_emakers.model.entidades.Pessoa;
 
 import java.util.List;
+import java.util.Set;
 
 
 public record PessoaResponseDTO(
@@ -13,7 +14,7 @@ public record PessoaResponseDTO(
 
         String cep,
 
-        List<Livro> livros
+        Set<Livro> livros
 ) {
     public PessoaResponseDTO(Pessoa pessoa){
         this(pessoa.getIdPessoa(), pessoa.getNome(), pessoa.getCep(), pessoa.getLivros());
