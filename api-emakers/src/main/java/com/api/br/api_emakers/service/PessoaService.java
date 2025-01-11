@@ -73,6 +73,15 @@ public class PessoaService {
         return new PessoaResponseDTO(pessoa);
     }
 
+    public String devolverLivro(Integer idPessoa, Integer idLivro){
+        Livro livro = livroRepository.getReferenceById(idLivro);
+        Pessoa pessoa = getEntityById(idPessoa);
+        pessoa.removerEmprestimo(livro);
+        pessoaRepository.save(pessoa);
+
+        return "Livro " + livro.getNome() + " devolvido com sucesso!";
+    }
+
     private Pessoa getEntityById(Integer idPessoa){
         return pessoaRepository.findById(idPessoa).orElseThrow(()-> new RuntimeException("Pessoa não encontrada."));
     }

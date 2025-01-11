@@ -25,9 +25,6 @@ public class Livro {
 
     private Date data_lancamento;
 
-    @ManyToMany(mappedBy = "livros")
-    private Set<Pessoa> emprestimos = new HashSet<>();
-
     @Builder
     public Livro(LivroRequestDTO livroRequestDTO){
         this.nome = livroRequestDTO.nome();
@@ -71,15 +68,4 @@ public class Livro {
         this.data_lancamento = data_lancamento;
     }
 
-    public Set<Pessoa> getEmprestimos(){
-        return emprestimos;
-    }
-
-    public void setEmprestimos(Set<Pessoa> emprestimos){
-        this.emprestimos = emprestimos;
-    }
-
-    public void addEmprestimo(Pessoa pessoa){
-        this.emprestimos.add(pessoa);
-    }
 }

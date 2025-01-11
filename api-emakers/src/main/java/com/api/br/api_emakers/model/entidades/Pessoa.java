@@ -79,7 +79,6 @@ public class Pessoa {
 
     public void addEmprestimo(Livro livro){
         this.livros.add(livro);
-        livro.addEmprestimo(this);
     }
 
     public void removerEmprestimo(Livro livro){

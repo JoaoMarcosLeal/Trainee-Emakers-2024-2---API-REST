@@ -45,6 +45,11 @@ public class PessoaController {
         return ResponseEntity.status(HttpStatus.OK).body(pessoaService.fazerEmprestimo(idPessoa, idLivro));
     }
 
+    @PutMapping("/devolucao/{idPessoa}/{idLivro}")
+    public ResponseEntity<String> devolverLivro(@PathVariable Integer idPessoa, @PathVariable Integer idLivro){
+        return ResponseEntity.status(HttpStatus.OK).body(pessoaService.devolverLivro(idPessoa, idLivro));
+    }
+
     @DeleteMapping("/delete/{idPessoa}")
     public ResponseEntity<String> deletePessoa(@PathVariable Integer idPessoa){
         return ResponseEntity.status(HttpStatus.OK).body(pessoaService.deletePessoa(idPessoa));
