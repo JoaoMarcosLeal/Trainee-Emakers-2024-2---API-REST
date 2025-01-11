@@ -1,12 +1,12 @@
 package com.api.br.api_emakers.model.entidades;
 
 import com.api.br.api_emakers.model.dto.request.PessoaRequestDTO;
+import com.api.br.api_emakers.model.dto.response.LivroResponseDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.*;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "pessoas")
 public class Pessoa {
@@ -21,18 +21,23 @@ public class Pessoa {
     @Column(name = "cep", nullable = false, length = 9)
     private String cep;
 
+    // Set utilizado para previnir que uma pessoa pegue o mesmo livro duas vezes silmultaneamente
     @ManyToMany
     @JoinTable(
             name = "emprestimos",
             joinColumns = @JoinColumn(name = "pessoa_id"),
             inverseJoinColumns = @JoinColumn(name = "livro_id")
     )
-    private Set<Livro> livros;
+    private Set<Livro> livros = new HashSet<>();
 
     @Builder
     public Pessoa(PessoaRequestDTO pessoaRequestDTO){
         this.nome = pessoaRequestDTO.nome();
         this.cep = pessoaRequestDTO.cep();
+    }
+
+    public Pessoa(){
+
     }
 
     public Integer getIdPessoa() {
@@ -59,11 +64,25 @@ public class Pessoa {
         this.cep = cep;
     }
 
-    public Set<Livro> getLivros(){
-        return livros;
+    public Set<LivroResponseDTO> getLivros(){
+        Set<LivroResponseDTO> livroResponseDTOS = new HashSet<>();
+        for (Livro livro : livros){
+            livroResponseDTOS.add(new LivroResponseDTO(livro));
+        }
+
+        return livroResponseDTOS;
     }
 
     public void setLivros(Set<Livro> livros){
         this.livros = livros;
+    }
+
+    public void addEmprestimo(Livro livro){
+        this.livros.add(livro);
+        livro.addEmprestimo(this);
+    }
+
+    public void removerEmprestimo(Livro livro){
+        livros.remove(livro);
     }
 }

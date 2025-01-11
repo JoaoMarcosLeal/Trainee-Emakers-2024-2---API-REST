@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,13 +26,13 @@ public class Livro {
     private Date data_lancamento;
 
     @ManyToMany(mappedBy = "livros")
-    private Set<Pessoa> emprestimos;
+    private Set<Pessoa> emprestimos = new HashSet<>();
 
     @Builder
     public Livro(LivroRequestDTO livroRequestDTO){
         this.nome = livroRequestDTO.nome();
         this.autor = livroRequestDTO.autor();
-        this.data_lancamento = Date.valueOf(livroRequestDTO.data_lancamento());
+        this.data_lancamento = livroRequestDTO.data_lancamento();
     }
 
     public Livro(){
@@ -62,12 +63,12 @@ public class Livro {
         this.autor = autor;
     }
 
-    public String getData_lancamento() {
-        return data_lancamento.toString();
+    public Date getData_lancamento() {
+        return data_lancamento;
     }
 
-    public void setData_lancamento(String data_lancamento){
-        this.data_lancamento = Date.valueOf(data_lancamento);
+    public void setData_lancamento(Date data_lancamento){
+        this.data_lancamento = data_lancamento;
     }
 
     public Set<Pessoa> getEmprestimos(){
@@ -76,5 +77,9 @@ public class Livro {
 
     public void setEmprestimos(Set<Pessoa> emprestimos){
         this.emprestimos = emprestimos;
+    }
+
+    public void addEmprestimo(Pessoa pessoa){
+        this.emprestimos.add(pessoa);
     }
 }
