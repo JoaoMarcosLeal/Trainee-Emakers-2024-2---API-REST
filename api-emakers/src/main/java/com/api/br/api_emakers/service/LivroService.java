@@ -1,5 +1,6 @@
 package com.api.br.api_emakers.service;
 
+import com.api.br.api_emakers.exceptions.LivroNotFoundException;
 import com.api.br.api_emakers.model.dto.request.LivroRequestDTO;
 import com.api.br.api_emakers.model.dto.response.LivroResponseDTO;
 import com.api.br.api_emakers.model.entidades.Livro;
@@ -41,9 +42,13 @@ public class LivroService {
     // Update a book by ID
     public LivroResponseDTO updateLivro(Integer idLivro, LivroRequestDTO livroRequestDTO) {
         Livro livro = getEntityById(idLivro);
-        livro.setNome(livroRequestDTO.nome());
-        livro.setAutor(livroRequestDTO.autor());
-        livro.setData_lancamento(livroRequestDTO.data_lancamento());
+
+        if (livroRequestDTO.nome() != null)
+            livro.setNome(livroRequestDTO.nome());
+        if (livroRequestDTO.autor() != null)
+            livro.setAutor(livroRequestDTO.autor());
+        if (livroRequestDTO.data_lancamento() != null)
+            livro.setData_lancamento(livroRequestDTO.data_lancamento());
 
         livroRepository.save(livro);
 
@@ -60,6 +65,6 @@ public class LivroService {
 
     // Helper method to retrieve entity by ID
     private Livro getEntityById(Integer idLivro) {
-        return livroRepository.findById(idLivro).orElseThrow(() -> new RuntimeException("Livro não encontrado."));
+        return livroRepository.findById(idLivro).orElseThrow(LivroNotFoundException::new);
     }
 }

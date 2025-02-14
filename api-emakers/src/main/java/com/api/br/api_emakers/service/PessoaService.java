@@ -1,5 +1,6 @@
 package com.api.br.api_emakers.service;
 
+import com.api.br.api_emakers.exceptions.UserNotFoundException;
 import com.api.br.api_emakers.model.dto.request.PessoaRequestDTO;
 import com.api.br.api_emakers.model.dto.response.PessoaResponseDTO;
 import com.api.br.api_emakers.model.entidades.Livro;
@@ -83,7 +84,6 @@ public class PessoaService {
     }
 
     private Pessoa getEntityById(Integer idPessoa){
-        return pessoaRepository.findById(idPessoa).orElseThrow(()-> new RuntimeException("Pessoa não encontrada."));
+        return pessoaRepository.findById(idPessoa).orElseThrow(UserNotFoundException::new);
     }
-
 }

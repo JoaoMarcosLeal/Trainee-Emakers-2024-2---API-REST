@@ -1,0 +1,113 @@
+[33mcommit 4059b49330877035edb15b1f3a1471cfdb5187f0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Sat Jan 11 01:37:22 2025 -0300
+
+    Funções de emprestimos criadas
+
+[33mcommit c111bcf4b4b88f14bdb267bbb0cde123d8291e31[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Sat Jan 11 01:24:43 2025 -0300
+
+    Pronto
+
+[33mcommit 0aa1e06ea998ecec364a95bf9a63e878242d8d75[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Thu Jan 9 18:02:31 2025 -0300
+
+    Removida dependencia do spring security
+
+[33mcommit 3c6090abb9b2ee5aeb531dab00452991e0b28779[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Mon Jan 6 13:16:28 2025 -0300
+
+    Adicionado LivroController.
+
+[33mcommit 518931c4571159e652de5dbfb31fbe93bd512051[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Sun Jan 5 22:17:12 2025 -0300
+
+    DTOs completos, service feito e mapeamento da relação ManyToMany.
+
+[33mcommit 857fc4158f950c119e08a5b80ee2a4214153c25f[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Fri Jan 3 08:59:55 2025 -0300
+
+    service adicionado
+
+[33mcommit 1671a59e495f1077b737372dc189568f487485f7[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Thu Jan 2 19:51:07 2025 -0300
+
+    Correção dos erros, API agora sobe normelmente. Relação ManyToMany mapeada corretamente agora. :)
+
+[33mcommit 6eb20617e7cec0be4a78b8bcf85af799072b5970[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Wed Jan 1 15:06:01 2025 -0300
+
+    Correção de erros nos DTOs e foi acrescentado umconstrutor na classe Pessoa.
+
+[33mcommit db48c629f9882c37e7a42a75ea3ce91bee0fe293[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Wed Jan 1 14:37:08 2025 -0300
+
+    Feito o service, construtor das entidades e DTOs. A revisão do mapeamento do relacionamento ManyToMany ainda deve ser feito, tanto nas entidades, quanto nos DTOs.
+
+[33mcommit 7c46c21eba308647d3ab080a63c235493d355b6d[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Tue Dec 31 19:45:48 2024 -0300
+
+    tudo certo
+
+[33mcommit 74e912456b2c2e1731982ffbc895df8e338ef793[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Tue Dec 31 18:14:23 2024 -0300
+
+    Adicionando arquivo principal da api
+
+[33mcommit f7391cbc9f80946eb21594a9119980365e73e456[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Tue Dec 31 18:12:39 2024 -0300
+
+    consertando umas besteiras
+
+[33mcommit 02be22d7242ff644bede0175ad5507c04cbcddf9[m
+Author: João Marcos <144149712+JoaoMarcosLeal@users.noreply.github.com>
+Date:   Tue Dec 31 17:36:14 2024 -0300
+
+    Delete .idea directory
+
+[33mcommit d4f8e8378bdc3d772b85e0c373eca21bc1f567b2[m
+Author: João Marcos <144149712+JoaoMarcosLeal@users.noreply.github.com>
+Date:   Tue Dec 31 17:02:48 2024 -0300
+
+    Delete API directory
+
+[33mcommit 1f77414f1e47abb279662c236052d27f262f32fb[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Tue Dec 31 16:59:52 2024 -0300
+
+    Criação de entidades e configuração das propiedades.
+
+[33mcommit 558e94faff1eabce8f04498afea858df5bf887a7[m
+Author: João Marcos <144149712+JoaoMarcosLeal@users.noreply.github.com>
+Date:   Thu Dec 5 16:18:32 2024 -0300
+
+    Delete out/production/API directory
+
+[33mcommit 92f36e0db852635fb721500ae0c7c1791bca7aab[m
+Author: João Marcos <joaomarcosjoao92@gmail.com>
+Date:   Thu Dec 5 16:17:20 2024 -0300
+
+    testando funcionamento do repo
+
+[33mcommit 4d0a808ab5d06212cfae234ecc36e848b314cdf8[m
+Author: João Marcos <144149712+JoaoMarcosLeal@users.noreply.github.com>
+Date:   Wed Dec 4 15:18:53 2024 -0300
+
+    Update README.md
+
+[33mcommit 94414af0221b940def2d484ec739fac006958a8d[m
+Author: João Marcos <144149712+JoaoMarcosLeal@users.noreply.github.com>
+Date:   Tue Dec 3 15:57:47 2024 -0300
+
+    Initial commit
